@@ -12,3 +12,11 @@ class agent:
     def pos_update(self):
         self.x=self.x+np.random.randint(-1, 2)
         self.y=self.y+np.random.randint(-1, 2)
+        if self.x<0:
+            self.x=self.x+L
+        if self.y<0:
+            self.y=self.y+L
+        if self.x>=L:
+            self.x=self.x-L
+        if self.y>=L:
+            self.y=self.y-L
