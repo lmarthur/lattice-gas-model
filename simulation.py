@@ -4,11 +4,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from agents import agent
 from environment import environment
-n_agents=10
 
-L=10
+n_agents=100
+L=1000
+iter=10000
+
+
 environment=environment(L)
 
+n_agents=100
 agentlist=list()
 for i in range(n_agents):
     agentlist.append(agent(L))
@@ -23,9 +27,11 @@ for i in range(n_agents):
     xposdat[i]=poslist[i][0]
     yposdat[i]=poslist[i][1]
 
-plt.scatter(xposdat, yposdat)
-plt.axis('square')
-plt.savefig('scatterplot_initial.pdf')
-plt.matshow(environment.resource_field)
-plt.savefig('environment_initial.pdf')
+history=np.zeros((L, L))
+for step in range(iter):
+    for i in range(n_agents):
+        agentlist[i].pos_update()
+        history[agentlist[i].get_pos()[0], agentlist[i].get_pos()[1]]+=1
+        
+plt.matshow(history)
 plt.show()
