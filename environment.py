@@ -6,9 +6,15 @@ class environment:
     def __init__(self, L):
         self.gridsize=L
         self.resource_field=np.random.rand(L, L)
-    
+        self.initial_resource=self.resource_field
+        
     def get_value(self, i, j):
         return self.resource_field[i, j]
     
-    def resource_update(self, i, j, frac):
-        self.resource_field[i, j]=(1-frac)*self.resource_field[i, j]
+    def add_resource(self, i, j, frac):
+        if self.resource_field[i, j]<self.initial_resource[i, j]:
+            self.resource_field[i, j]+=1
+            
+    def subtract_resource(self, i, j, frac):
+        if self.resource_field[i, j]>0
+            self.resource_field[i, j]-=1

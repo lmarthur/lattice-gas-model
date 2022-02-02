@@ -5,6 +5,7 @@ class agent:
     def __init__(self, L):
         self.x=np.random.randint(0, L)
         self.y=np.random.randint(0, L)
+        self.stored_resource=0
     
     def get_pos(self):
         return np.array([self.x, self.y])
