@@ -100,6 +100,7 @@ for i in range(reducedlength):
     reducedpopulationdata[i]=popavg
     
 data=np.array([n_agents, L, history, reducedmovehistory, reducedpopulationdata], dtype=object)
-np.save(os.path.join(os.getcwd(), "rundata.npy"), data)
-
+path=os.path.join(os.path.dirname(os.path.abspath(__file__)),'rundata.npy')
+print(path)
+np.save(path, data)
 print("Run Complete")
