@@ -2,9 +2,9 @@
 
 #Define the parameters for the model run. 
 ###
-n_agents=10
-L=50
-t=int(1e4)
+n_agents=100
+L=250
+t=int(1e5)
 productivity=True
 reducedlength=1000
 ###
